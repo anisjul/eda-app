@@ -3,7 +3,8 @@ import pandas as pd
 import streamlit as st
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
-
+profile = df.profile_report(title ='Pandas Profiling Report')
+profile.to_file(output_file="output.html")
 # Web App Title
 st.markdown('''
 # **The Exploratary Data Analysis App**
@@ -32,8 +33,7 @@ if uploaded_file is not None:
     st.write('---')
     st.header('**Pandas Profiling Report**')
     st_profile_report(pr)
-    profile = df.profile_report(title ='Pandas Profiling Report')
-    profile.to_file(output_file="output.html")
+    
 else:
     st.info('Awaiting for CSV file to be uploaded.')
     if st.button('Press to use Example Dataset'):
