@@ -32,6 +32,8 @@ if uploaded_file is not None:
     st.write('---')
     st.header('**Pandas Profiling Report**')
     st_profile_report(pr)
+    profile = df.profile_report(title ='Pandas Profiling Report')
+    profile.to_file(output_file="output.htm")
 else:
     st.info('Awaiting for CSV file to be uploaded.')
     if st.button('Press to use Example Dataset'):
