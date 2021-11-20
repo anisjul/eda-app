@@ -3,6 +3,8 @@ import pandas as pd
 import streamlit as st
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
+profile=df.profile_report()
+rejected_variables=profile.get_rejected_variables(threshold=0.9)
 profile = df.profile_report(title ='Pandas Profiling Report')
 profile.to_file(output_file="output.html")
 # Web App Title
