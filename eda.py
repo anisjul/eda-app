@@ -1,15 +1,12 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-import pandas_profiling
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
-df.profile_report(style={'full_width':True})
-profile=df.profile_report()
-rejected_variables=profile.get_rejected_variables(threshold=0.9)
-profile = df.profile_report(title ='Pandas Profiling Report')
-profile.to_file(output_file="output.html")
+profile = df.profile_report()
+st.write(profile.html, unsafe_allow_html = True)
+
 # Web App Title
 st.markdown('''
 # **The Exploratary Data Analysis App**
