@@ -4,18 +4,11 @@ import streamlit as st
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
-df = pd.DataFrame(np.random.rand(100, 5), columns=["a", "b", "c", "d", "e"])
-profile = ProfileReport(df, title="Pandas Profiling Report")
-profile = ProfileReport(df, title="Pandas Profiling Report", explorative=True)
-profile.to_widgets()
-profile.to_notebook_iframe()
-profile.to_file("your_report.html")
-
 # Web App Title
 st.markdown('''
-# **The Exploratary Data Analysis App**
+# **The EDA App**
 This is the **EDA App** created in Streamlit using the **pandas-profiling** library.
-
+**Credit:** App built in `Python` + `Streamlit` by [Chanin Nantasenamat](https://medium.com/@chanin.nantasenamat) (aka [Data Professor](http://youtube.com/dataprofessor))
 ---
 ''')
 
@@ -39,7 +32,6 @@ if uploaded_file is not None:
     st.write('---')
     st.header('**Pandas Profiling Report**')
     st_profile_report(pr)
-    
 else:
     st.info('Awaiting for CSV file to be uploaded.')
     if st.button('Press to use Example Dataset'):
