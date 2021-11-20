@@ -4,8 +4,12 @@ import streamlit as st
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
-profile = df.profile_report()
-st.write(profile.html, unsafe_allow_html = True)
+# Install dependencies
+pip install numpy pandas pandas-profiling
+
+# Run demo app
+streamlit run https://raw.githubusercontent.com/Ghasel/streamlit-pandas-profiling/master/examples/streamlit_pandas_profiling_demo.py
+
 
 # Web App Title
 st.markdown('''
