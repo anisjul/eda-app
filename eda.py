@@ -4,12 +4,12 @@ import streamlit as st
 from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
-# Install dependencies
-pip install numpy pandas pandas-profiling
-
-# Run demo app
-streamlit run https://raw.githubusercontent.com/Ghasel/streamlit-pandas-profiling/master/examples/streamlit_pandas_profiling_demo.py
-
+df = pd.DataFrame(np.random.rand(100, 5), columns=["a", "b", "c", "d", "e"])
+profile = ProfileReport(df, title="Pandas Profiling Report")
+profile = ProfileReport(df, title="Pandas Profiling Report", explorative=True)
+profile.to_widgets()
+profile.to_notebook_iframe()
+profile.to_file("your_report.html")
 
 # Web App Title
 st.markdown('''
